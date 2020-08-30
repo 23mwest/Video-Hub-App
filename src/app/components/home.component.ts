@@ -223,8 +223,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     selectedOutputFolder: '',
     selectedSourceFolder: { 0: { path: '', watch: false }},
     showWizard: false,
-    ssConstant: 10,
-    ssVariable: 5,
+    ssConstant: 9,
+    ssVariable: 8
   };
 
   // ========================================================================
@@ -694,6 +694,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (settingsObject.shortcuts) {
         this.shortcutService.initializeFromSaved(settingsObject.shortcuts);
       }
+      if (settingsObject.wizardSettings) {
+        this.wizard = settingsObject.wizardSettings;
+        debugger;
+        console.log(this.wizard);
+      }
+
     });
 
     this.electronService.ipcRenderer.on('please-open-wizard', (event, firstRun) => {
@@ -1754,6 +1760,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       shortcuts: this.shortcutService.keyToActionMap,
       vhaFileHistory: this.vhaFileHistory,
       windowSizeAndPosition: undefined, // is added in `cose-window` in `main.ts`
+      wizardSettings: this.wizard
     };
   }
 

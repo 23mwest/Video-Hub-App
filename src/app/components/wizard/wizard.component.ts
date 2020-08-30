@@ -36,7 +36,7 @@ export class WizardComponent {
   @Input() vhaFileHistory: HistoryItem[];
   @Input() wizard: WizardOptions;
 
-  constructor() { }
+  constructor() { debugger; }
 
   /**
    * Only allow characters and numbers for hub name

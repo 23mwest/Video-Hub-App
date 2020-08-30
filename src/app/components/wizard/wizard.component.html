@@ -176,7 +176,7 @@
         (change)="selectNumOfScreens($event.target.value)"
         type="number"
         class="size-dropdown language-drop-down num-select"
-        value=10
+        [(ngModel)]="wizard.ssConstant"
         min=3
         max=30
         onKeyDown="return false"
@@ -207,7 +207,7 @@
         (change)="selectNumOfScreens($event.target.value)"
         type="number"
         class="size-dropdown language-drop-down num-select"
-        value=5
+        [(ngModel)]="wizard.ssVariable"
         min=1
         max=20
         onKeyDown="return false"
@@ -216,8 +216,7 @@
                  || wizard.futureHubName === ''
                  || wizard.isFixedNumberOfScreenshots"
       >
-      {{ 'WIZARD.minutes' | translate }}
-
+      {{ wizard.ssVariable }}
     </div>
 
     <div
@@ -242,8 +241,8 @@
                || wizard.selectedSourceFolder[0].path === ''
                || wizard.futureHubName === ''"
     >
-      <option value="144">144px</option>
-      <option value="216">216px</option>
+      <option value="144" >144px</option>
+      <option value="216" >216px</option>
       <option value="288" selected="selected">288px</option>
       <option value="360">360px</option>
       <option value="432">432px</option>
